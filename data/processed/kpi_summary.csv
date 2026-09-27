@@ -1,0 +1,6 @@
+metric_id,metric_name,value,unit,scope,computed_at
+M-01,Average Fare per Mile,11.2669,USD/mile,VALID_OPERATIONAL  trip_distance > 0,2026-09-27T16:37:02.109161+00:00
+M-02,Estimated Hourly Driver Revenue (HDR) — Peak Hour,134.32,USD/hr,pickup_hour=5  (peak of 24-hr distribution),2026-09-27T16:37:03.325054+00:00
+M-03,Peak Demand Zone Index,70999.0,trips,Top zone: Midtown Center  |  Top 10: Midtown Center:70999; Upper East Side North:68911; Upper East Side South:68014; JFK Airport:60247; Midtown East:56565; Penn Station/Madison Sq West:48179; Lincoln Square East:47479; Times Sq/Theatre District:46411; Upper West Side South:41787; LaGuardia Airport:41536,2026-09-27T16:37:03.740986+00:00
+M-04,Congestion Fee Capture Rate (CFCR),97.86,%,Manhattan non-airport VALID_OPERATIONAL trips,2026-09-27T16:37:04.444929+00:00
+M-05,Clean Operational Yield (COY),91.97,%,VALID_OPERATIONAL / full raw dataset,2026-09-27T16:37:04.470047+00:00

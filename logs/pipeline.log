@@ -1,0 +1,479 @@
+2026-09-27 12:31:55,232 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 12:31:55,233 [ERROR] PIPELINE FAILED: run_ingestion() got an unexpected keyword argument 'month'
+2026-09-27 12:33:10,419 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 12:33:10,419 [INFO] === STAGE 1: INGEST ===
+2026-09-27 12:33:10,420 [INFO] [INGEST][taxi_zones] status: OK  (MD5 mismatch -- re-downloading)
+2026-09-27 12:33:10,955 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 12:33:10,955 [INFO] [INGEST][yellow_trips] status: OK  (MD5 mismatch -- re-downloading)
+2026-09-27 12:33:19,906 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 12:33:19,913 [INFO] [INGEST][indicators_api] status: OK  (MD5 mismatch -- re-downloading)
+2026-09-27 12:33:21,566 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 12:33:21,568 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 12:33:21,569 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 12:33:23,463 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 12:33:26,867 [ERROR] PIPELINE HALTED BY ASSERTION: ASSERT-02 FAILED: only 71.09% VALID_OPERATIONAL (threshold: 90%).
+2026-09-27 12:36:52,593 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 12:36:52,593 [INFO] === STAGE 1: INGEST ===
+2026-09-27 12:36:52,594 [INFO] [INGEST][taxi_zones] status: SKIP  rows: 265  (MD5 match, re-download skipped)
+2026-09-27 12:36:52,706 [INFO] [INGEST][yellow_trips] status: SKIP  rows: 2964624  (MD5 match, re-download skipped)
+2026-09-27 12:36:52,707 [INFO] [INGEST][indicators_api] status: SKIP  rows: 300  (MD5 match, re-download skipped)
+2026-09-27 12:36:52,707 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 12:36:52,707 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 12:36:54,380 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 12:36:59,078 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 12:36:59,082 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 12:36:59,432 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 12:36:59,432 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 12:36:59,432 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 12:36:59,667 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 12:36:59,673 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 12:37:00,604 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 12:37:00,626 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 12:37:07,504 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 12:37:07,932 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 12:37:08,018 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 12:37:08,040 [INFO] === STAGE 4: METRICS ===
+2026-09-27 12:37:08,073 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 12:37:08,998 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 12:37:09,587 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 12:37:10,438 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 12:37:10,468 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 12:37:10,468 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 12:37:10,489 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 12:37:10,997 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 12:37:10,997 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 12:37:10,997 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 18.4s) ===
+2026-09-27 12:40:36,954 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 12:40:36,955 [INFO] === STAGE 1: INGEST ===
+2026-09-27 12:40:36,956 [INFO] [INGEST][taxi_zones] status: SKIP  rows: 265  (MD5 match, re-download skipped)
+2026-09-27 12:40:37,107 [INFO] [INGEST][yellow_trips] status: SKIP  rows: 2964624  (MD5 match, re-download skipped)
+2026-09-27 12:40:37,108 [INFO] [INGEST][indicators_api] status: SKIP  rows: 300  (MD5 match, re-download skipped)
+2026-09-27 12:40:37,109 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 12:40:37,109 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 12:40:38,886 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 12:40:43,965 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 12:40:43,969 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 12:40:44,359 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 12:40:44,360 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 12:40:44,360 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 12:40:44,667 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 12:40:44,673 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 12:40:45,785 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 12:40:45,813 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 12:40:53,540 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 12:40:54,017 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 12:40:54,111 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 12:40:54,121 [INFO] === STAGE 4: METRICS ===
+2026-09-27 12:40:54,146 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 12:40:55,106 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 12:40:55,477 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 12:40:56,042 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 12:40:56,062 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 12:40:56,063 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 12:40:56,067 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 12:40:56,441 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 12:40:56,442 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 12:40:56,442 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 19.5s) ===
+2026-09-27 16:02:57,436 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 16:02:57,437 [INFO] === STAGE 1: INGEST ===
+2026-09-27 16:02:57,705 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 16:03:04,797 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 16:03:06,746 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 16:03:06,748 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 16:03:06,748 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 16:03:08,892 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 16:03:13,846 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 16:03:13,850 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 16:03:14,220 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 16:03:14,221 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 16:03:14,221 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 16:03:14,467 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 16:03:14,471 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 16:03:15,402 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 16:03:15,423 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 16:03:23,762 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 16:03:24,153 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 16:03:24,231 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 16:03:24,240 [INFO] === STAGE 4: METRICS ===
+2026-09-27 16:03:24,270 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 16:03:25,211 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 16:03:25,646 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 16:03:26,252 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 16:03:26,273 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 16:03:26,274 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 16:03:26,286 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 16:03:26,669 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 16:03:26,669 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 16:03:26,669 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 29.2s) ===
+2026-09-27 20:53:50,419 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 20:53:50,420 [INFO] === STAGE 1: INGEST ===
+2026-09-27 20:53:50,634 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 20:53:57,129 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 20:53:58,509 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 20:53:58,510 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 20:53:58,510 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 20:54:01,614 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 20:54:04,986 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 20:54:04,989 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 20:54:05,194 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 20:54:05,194 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 20:54:05,194 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 20:54:05,358 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 20:54:05,362 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 20:54:05,949 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 20:54:05,968 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 20:54:11,486 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 20:54:11,748 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 20:54:11,796 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 20:54:11,802 [INFO] === STAGE 4: METRICS ===
+2026-09-27 20:54:11,822 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 20:54:12,385 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 20:54:12,693 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 20:54:13,110 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 20:54:13,126 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 20:54:13,127 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 20:54:13,138 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 20:54:13,454 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 20:54:13,455 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 20:54:13,455 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 23.0s) ===
+2026-09-27 20:58:45,703 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 20:58:45,703 [INFO] === STAGE 1: INGEST ===
+2026-09-27 20:58:45,704 [INFO] [INGEST][taxi_zones] status: SKIP  rows: 265  (MD5 match, re-download skipped)
+2026-09-27 20:58:45,779 [INFO] [INGEST][yellow_trips] status: SKIP  rows: 2964624  (MD5 match, re-download skipped)
+2026-09-27 20:58:45,780 [INFO] [INGEST][indicators_api] status: SKIP  rows: 300  (MD5 match, re-download skipped)
+2026-09-27 20:58:45,780 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 20:58:45,780 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 20:58:47,186 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 20:58:50,607 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 20:58:50,610 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 20:58:50,811 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 20:58:50,812 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 20:58:50,812 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 20:58:50,969 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 20:58:50,972 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 20:58:51,609 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 20:58:51,626 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 20:58:56,242 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 20:58:56,500 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 20:58:56,550 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 20:58:56,556 [INFO] === STAGE 4: METRICS ===
+2026-09-27 20:58:56,580 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 20:58:57,205 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 20:58:57,523 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 20:58:57,945 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 20:58:57,962 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 20:58:57,962 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 20:58:57,971 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 20:58:58,275 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 20:58:58,276 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 20:58:58,276 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 12.6s) ===
+2026-09-27 20:59:11,091 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 20:59:11,091 [INFO] === STAGE 1: INGEST ===
+2026-09-27 20:59:12,886 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 20:59:19,404 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 20:59:23,135 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 20:59:23,136 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 20:59:23,136 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 20:59:24,271 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 20:59:27,570 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 20:59:27,572 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 20:59:27,785 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 20:59:27,785 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 20:59:27,785 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 20:59:27,949 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 20:59:27,953 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 20:59:28,614 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 20:59:28,630 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 20:59:33,363 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 20:59:33,646 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 20:59:33,697 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 20:59:33,705 [INFO] === STAGE 4: METRICS ===
+2026-09-27 20:59:33,722 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 20:59:34,280 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 20:59:34,620 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 20:59:35,090 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 20:59:35,106 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 20:59:35,106 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 20:59:35,111 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 20:59:35,390 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 20:59:35,390 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 20:59:35,390 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 24.3s) ===
+2026-09-27 21:07:13,285 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:07:13,285 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:07:13,473 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:07:20,409 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:07:22,190 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:07:22,192 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:07:22,192 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:07:24,215 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:07:30,503 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:07:30,506 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:07:30,926 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:07:30,926 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:07:30,927 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:07:31,261 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:07:31,268 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:07:32,567 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:07:32,607 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:07:47,954 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:07:48,882 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:07:49,082 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:07:49,097 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:07:49,143 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:07:50,906 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:07:51,893 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:07:53,736 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:07:53,816 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:07:53,817 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:07:53,829 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:07:55,692 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:07:55,692 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:07:55,693 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 42.4s) ===
+2026-09-27 21:09:36,729 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:09:36,729 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:09:36,980 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:09:43,573 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:09:47,507 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:09:47,510 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:09:47,510 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:09:49,762 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:09:56,185 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:09:56,189 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:09:56,600 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:09:56,601 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:09:56,601 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:09:56,916 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:09:56,923 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:09:58,010 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:09:58,042 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:10:06,217 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:10:06,747 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:10:06,843 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:10:06,855 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:10:06,890 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:10:08,119 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:10:08,694 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:10:09,471 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:10:09,493 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:10:09,494 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:10:09,501 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:10:09,919 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:10:09,920 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:10:09,920 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 33.2s) ===
+2026-09-27 21:12:22,939 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:12:22,939 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:12:23,299 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:12:30,139 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:12:31,708 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:12:31,711 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:12:31,712 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:12:33,907 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:12:40,136 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:12:40,141 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:12:40,545 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:12:40,545 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:12:40,546 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:12:40,880 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:12:40,888 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:12:42,015 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:12:42,050 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:12:50,856 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:12:51,376 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:12:51,481 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:12:51,491 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:12:51,521 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:12:52,685 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:12:53,156 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:12:53,830 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:12:53,855 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:12:53,855 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:12:53,860 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:12:54,255 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:12:54,256 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:12:54,256 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 31.3s) ===
+2026-09-27 21:21:05,735 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:21:05,735 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:21:07,545 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:21:14,012 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:21:16,026 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:21:16,028 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:21:16,029 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:21:17,751 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:21:22,621 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:21:22,624 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:21:22,987 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:21:22,988 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:21:22,988 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:21:23,228 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:21:23,233 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:21:24,176 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:21:24,202 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:21:31,234 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:21:31,674 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:21:31,750 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:21:31,758 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:21:31,786 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:21:32,621 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:21:33,086 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:21:33,712 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:21:33,735 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:21:33,735 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:21:33,740 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:21:34,148 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:21:34,148 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:21:34,149 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 28.4s) ===
+2026-09-27 21:27:52,827 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:27:52,827 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:27:53,024 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:27:59,931 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:28:03,476 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:28:03,479 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:28:03,479 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:28:05,701 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:28:12,040 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:28:12,043 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:28:12,450 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:28:12,450 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:28:12,450 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:28:12,776 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:28:12,783 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:28:13,934 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:28:13,960 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:28:22,938 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:28:23,483 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:28:23,588 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:28:23,599 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:28:23,635 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:28:24,831 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:28:25,363 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:28:26,186 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:28:26,215 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:28:26,216 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:28:26,223 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:28:26,810 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:28:26,810 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:28:26,810 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 34.0s) ===
+2026-09-27 21:35:09,206 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:35:09,207 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:35:09,922 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:35:16,751 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:35:18,663 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:35:18,666 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:35:18,666 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:35:21,070 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:35:27,486 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:35:27,490 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:35:27,900 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:35:27,900 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:35:27,901 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:35:28,229 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:35:28,235 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:35:29,408 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:35:29,439 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:35:39,027 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:35:39,477 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:35:39,555 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:35:39,563 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:35:39,590 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:35:40,443 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:35:40,833 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:35:41,512 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:35:41,546 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:35:41,546 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:35:41,554 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:35:42,130 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:35:42,130 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:35:42,131 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 32.9s) ===
+2026-09-27 21:39:53,682 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:39:53,682 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:39:53,882 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:40:00,320 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:40:02,319 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:40:02,321 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:40:02,322 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:40:04,118 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:40:10,317 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:40:10,321 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:40:10,736 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:40:10,737 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:40:10,737 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:40:11,066 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:40:11,071 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:40:11,986 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:40:12,011 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:40:18,783 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:40:19,210 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:40:19,291 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:40:19,299 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:40:19,326 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:40:20,107 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:40:20,602 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:40:21,280 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:40:21,306 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:40:21,307 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:40:21,312 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:40:21,723 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:40:21,723 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:40:21,723 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 28.0s) ===
+2026-09-27 21:49:04,649 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 21:49:04,649 [INFO] === STAGE 1: INGEST ===
+2026-09-27 21:49:04,984 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 21:49:11,666 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 21:49:13,319 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 21:49:13,321 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 21:49:13,322 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 21:49:15,751 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 21:49:22,084 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 21:49:22,088 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 21:49:22,494 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 21:49:22,495 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 21:49:22,495 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 21:49:22,820 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 21:49:22,827 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 21:49:23,994 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 21:49:24,028 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 21:49:32,486 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 21:49:32,955 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 21:49:33,064 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 21:49:33,074 [INFO] === STAGE 4: METRICS ===
+2026-09-27 21:49:33,108 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 21:49:34,173 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 21:49:34,571 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 21:49:35,201 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 21:49:35,224 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 21:49:35,225 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 21:49:35,229 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 21:49:35,621 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 21:49:35,621 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 21:49:35,621 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 31.0s) ===
+2026-09-27 22:06:31,663 [INFO] === NYC TLC Pipeline START — month: 2024-01 ===
+2026-09-27 22:06:31,663 [INFO] === STAGE 1: INGEST ===
+2026-09-27 22:06:32,244 [INFO] [INGEST][taxi_zones] status: OK  rows: 265  size_kb: 12.04  md5: c6064b7c144c716450641f769659d178
+2026-09-27 22:06:38,839 [INFO] [INGEST][yellow_trips] status: OK  rows: 2,964,624  size_mb: 47.65  md5: 10dff36f5a2fc325274438bf361c70f0
+2026-09-27 22:06:40,897 [INFO] [INGEST][indicators_api] status: OK  records: 300  md5: e9817cd6ad4aff08a5d0ca443f37e605
+2026-09-27 22:06:40,900 [INFO] [INGEST] Manifest written: D:\Code\JabTakNaaMaaneTinkuJiya\FDEProject2v2\data\raw\ingestion_manifest.json
+2026-09-27 22:06:40,900 [INFO] === STAGE 2: VALIDATE ===
+2026-09-27 22:06:43,600 [INFO] [VALIDATE] ASSERT-01: PASS (row count matches manifest: 2,964,624)
+2026-09-27 22:06:49,768 [INFO] [VALIDATE] ASSERT-02: PASS (91.97% >= 90% threshold)
+2026-09-27 22:06:49,772 [INFO] [VALIDATE] ASSERT-03: PASS (265 zones resolved)
+2026-09-27 22:06:50,191 [INFO] [VALIDATE] Total rows: 2,964,624
+2026-09-27 22:06:50,192 [INFO] [VALIDATE] VALID_OPERATIONAL: 2,726,549  (91.97%)
+2026-09-27 22:06:50,192 [INFO] [VALIDATE] Flagged rows:       238,075  (8.03%)
+2026-09-27 22:06:50,515 [INFO] [VALIDATE] Negative-fare trips: 37,448  Total value: $-887,690.59
+2026-09-27 22:06:50,521 [INFO] === STAGE 3: TRANSFORM + CLEAN ===
+2026-09-27 22:06:51,691 [INFO] [TRANSFORM] Imputed NULL congestion_surcharge: 140,162 rows -> 0.0
+2026-09-27 22:06:51,723 [INFO] [TRANSFORM] Imputed NULL Airport_fee: 140,162 rows -> 0.0
+2026-09-27 22:07:01,424 [INFO] [TRANSFORM] Wrote trips_clean.parquet: 2,726,549 rows
+2026-09-27 22:07:01,948 [INFO] [TRANSFORM] Wrote trips_flagged.parquet: 238,075 rows
+2026-09-27 22:07:02,054 [INFO] [TRANSFORM] Wrote trips_refunds.parquet: 37,448 rows
+2026-09-27 22:07:02,068 [INFO] === STAGE 4: METRICS ===
+2026-09-27 22:07:02,108 [INFO] [METRICS] M-01 Avg Fare/Mile: $11.2669
+2026-09-27 22:07:03,324 [INFO] [METRICS] M-02 Peak HDR (hour 5): $134.32/hr
+2026-09-27 22:07:03,740 [INFO] [METRICS] M-03 Top peak zone: Midtown Center (70,999 trips)
+2026-09-27 22:07:04,444 [INFO] [METRICS] M-04 CFCR: 97.86%  (2,407,133 / 2,459,756 eligible trips)
+2026-09-27 22:07:04,469 [INFO] [METRICS] M-05 COY: 91.97%  (2,726,549 / 2,964,624)
+2026-09-27 22:07:04,470 [INFO] === STAGE 5: OUTPUT ===
+2026-09-27 22:07:04,483 [INFO] [OUTPUT] Wrote kpi_summary.csv (5 metrics)
+2026-09-27 22:07:04,885 [INFO] [OUTPUT] Wrote known_unknown_assumptions.md
+2026-09-27 22:07:04,886 [INFO] [OUTPUT] Pipeline complete.
+2026-09-27 22:07:04,886 [INFO] === NYC TLC Pipeline COMPLETE — month: 2024-01 (Duration: 33.2s) ===
