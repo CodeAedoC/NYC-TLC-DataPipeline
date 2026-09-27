@@ -4,7 +4,7 @@ A production-grade data engineering pipeline designed to ingest, validate, clean
 
 Built to handle raw, multi-modal ingestion while maintaining strict financial and operational data integrity, this pipeline produces highly auditable Key Performance Indicators (KPIs) for downstream business use.
 
-> 📄 **[Project Report (PDF)](./FDE_Assignment2_Report.pdf)** — 2-page summary covering architecture, validation rules, KPI results, known/unknowns, assumptions, and evidence-backed conclusions.
+> 📄 **[Project Report (PDF)](./10118_Jatin_Mangtani.pdf)** — 2-page summary covering architecture, validation rules, KPI results, known/unknowns, assumptions, and evidence-backed conclusions.
 
 ---
 
